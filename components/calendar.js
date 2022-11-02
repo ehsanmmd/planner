@@ -4,14 +4,15 @@ import Grid from "@mui/material/Grid";
 import dayjs from "dayjs";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { CalendarPicker, LocalizationProvider } from "@mui/x-date-pickers";
+import { Paper } from "@mui/material";
 
 export default function Calendar() {
   const [date, setDate] = React.useState(dayjs("2022-04-07"));
 
   return (
-    <Box>
+    <Paper elevation={10}>
       <LocalizationProvider dateAdapter={AdapterDayjs}>
-        <Grid container spacing={3}>
+        <Grid container spacing={3} bgcolor="#fff">
           <Grid item xs={12} md={6}>
             <CalendarPicker
               date={date}
@@ -22,6 +23,6 @@ export default function Calendar() {
           </Grid>
         </Grid>
       </LocalizationProvider>
-    </Box>
+    </Paper>
   );
 }
