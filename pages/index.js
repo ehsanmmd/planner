@@ -9,8 +9,10 @@ export default function Home() {
   return (
     <>
       <Calendar />
-      <Drawer />
       <BottomNav />
+      <Drawer>
+        <TimeLine />
+      </Drawer>
     </>
   );
 }

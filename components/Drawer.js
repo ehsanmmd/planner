@@ -2,15 +2,15 @@ import CssBaseline from "@mui/material/CssBaseline";
 import { Global } from "@emotion/react";
 import { styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import SwipeableDrawer from "@mui/material/SwipeableDrawer";
 import { useState } from "react";
 import { grey } from "@mui/material/colors";
+import Paper from "@mui/material/Paper";
 
 const drawerBleeding = 56;
 
-export default function Drawer() {
+export default function Drawer(props) {
   const toggleDrawer = (newOpen) => () => {
     setOpen(newOpen);
   };
@@ -54,22 +54,24 @@ export default function Drawer() {
         }}
         hideBackdrop={true}
       >
-        <StyledBox
-          sx={{
-            position: "absolute",
-            top: -drawerBleeding,
-            borderTopLeftRadius: 30,
-            borderTopRightRadius: 30,
-            visibility: "visible",
-            right: 0,
-            left: 0,
-          }}
-        >
-          <Puller />
-          <Typography sx={{ p: 2, color: "text.secondary" }}>
-            Upcomming
-          </Typography>
-        </StyledBox>
+        <Paper elevation={5}>
+          <StyledBox
+            sx={{
+              position: "absolute",
+              top: -drawerBleeding,
+              borderTopLeftRadius: 30,
+              borderTopRightRadius: 30,
+              visibility: "visible",
+              right: 0,
+              left: 0,
+            }}
+          >
+            <Puller />
+            <Typography sx={{ p: 2, color: "text.secondary" }}>
+              Upcomming
+            </Typography>
+          </StyledBox>
+        </Paper>
         <StyledBox
           sx={{
             px: 2,
@@ -77,7 +79,7 @@ export default function Drawer() {
             height: "100%",
             overflow: "auto",
           }}
-        ></StyledBox>
+        >{props.children}</StyledBox>
       </SwipeableDrawer>
     </>
   );
