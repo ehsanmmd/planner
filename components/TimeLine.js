@@ -18,8 +18,8 @@ export default function TimeLine() {
         },
       }}
     >
-      {times.map((time) => {
-        return <TimeLineElement time={time} />;
+      {times.map((time, index) => {
+        return <TimeLineElement time={time} key={index} />;
       })}
     </Timeline>
   );

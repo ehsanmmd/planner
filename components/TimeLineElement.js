@@ -6,7 +6,6 @@ import TimelineOppositeContent, {
 } from "@mui/lab/TimelineOppositeContent";
 import Box from "@mui/system/Box";
 import { Divider } from "@mui/material";
-import { grey } from "@mui/material/colors";
 import Skeleton from "@mui/material/Skeleton";
 
 export default function TimeLineElement(props) {
@@ -17,15 +16,11 @@ export default function TimeLineElement(props) {
       </TimelineOppositeContent>
       <TimelineSeparator />
       <TimelineContent>
-        <Divider
-          component="li"
-          sx={{ mb: "18px", mt: "10px" }}
-          color="textSecondary"
-        />
+        <Divider sx={{ mb: "18px", mt: "10px" }}  />
         <Box sx={{ display: "inline-block" }}>
           <Skeleton
             variant="rectangular"
-            width={210}
+            width={410}
             height={80}
             sx={{ borderRadius: "10px" }}
           />
