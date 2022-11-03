@@ -1,17 +1,11 @@
 import * as React from "react";
-import Drawer from "../components/Drawer";
-import Calendar from "../components/calendar";
-import BottomNav from "../components/BottomNav";
-import TimeLine from "../components/TimeLine";
+import Layout from "./Layout";
+import { PlanContextProvider } from "../store/plan-context";
 
 export default function Home() {
   return (
-    <>
-      <Calendar />
-      <BottomNav />
-      <Drawer>
-        <TimeLine />
-      </Drawer>
-    </>
+    <PlanContextProvider>
+      <Layout />
+    </PlanContextProvider>
   );
 }
