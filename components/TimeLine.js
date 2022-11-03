@@ -4,6 +4,11 @@ import TimelineOppositeContent, {
 } from "@mui/lab/TimelineOppositeContent";
 import TimeLineElement from "./TimeLineElement";
 
+let times = [];
+for (let i = 0; i < 24; i++) {
+  times.push(`${i}:00`);
+}
+
 export default function TimeLine() {
   return (
     <Timeline
@@ -13,7 +18,9 @@ export default function TimeLine() {
         },
       }}
     >
-      <TimeLineElement time={"09:00"} />
+      {times.map((time) => {
+        return <TimeLineElement time={time} />;
+      })}
     </Timeline>
   );
 }
