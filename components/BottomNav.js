@@ -17,7 +17,6 @@ export default function BottomNav(props) {
         value={value}
         onChange={(event, newValue) => {
           setValue(newValue);
-          console.log(newValue);
         }}
       >
         <BottomNavigationAction icon={<HomeIcon fontSize="large" />} />

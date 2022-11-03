@@ -1,13 +1,12 @@
 import React from "react";
-import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import dayjs from "dayjs";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { CalendarPicker, LocalizationProvider } from "@mui/x-date-pickers";
 import { Paper } from "@mui/material";
 
-export default function Calendar() {
-  const [date, setDate] = React.useState(dayjs("2022-04-07"));
+export default function Calendar(props) {
+  const [date, setDate] = React.useState(dayjs(props.upcomingDate));
 
   return (
     <Paper elevation={10}>
