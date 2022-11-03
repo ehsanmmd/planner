@@ -4,7 +4,6 @@ import BottomNav from "../components/BottomNav";
 import TimeLine from "../components/TimeLine";
 import { useContext } from "react";
 import PlanContext from "../store/plan-context";
-import PlanTicket from "../components/PlanTicket";
 
 const today = new Date();
 
