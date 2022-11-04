@@ -6,17 +6,34 @@ import TimelineOppositeContent, {
 } from "@mui/lab/TimelineOppositeContent";
 import Box from "@mui/system/Box";
 import { Divider } from "@mui/material";
-import Skeleton from "@mui/material/Skeleton";
 import PlanTicket from "./PlanTicket";
 import { useContext } from "react";
 import PlanContext from "../store/plan-context";
 
 export default function TimeLineElement(props) {
   const ctx = useContext(PlanContext);
+  const selectedPlans = [];
 
-  const tickets = ctx.planItems.map((plan) => {
+  for (let i = 0; i < ctx.planItems.length; i++) {
+    if (
+      ctx.planItems[i].date.getDate() === ctx.selectedDate.getDate() &&
+      ctx.planItems[i].date.getMonth() === ctx.selectedDate.getMonth() &&
+      ctx.planItems[i].date.getFullYear() === ctx.selectedDate.getFullYear()
+    ) {
+      selectedPlans.push(ctx.planItems[i]);
+    }
+  }
+
+  const tickets = selectedPlans.map((plan, index) => {
     if (plan.time[0] === props.time) {
-     return <PlanTicket title={plan.topic} location={plan.location} time={plan.time}/>;
+      return (
+        <PlanTicket
+          title={plan.topic}
+          location={plan.location}
+          time={plan.time}
+          key={index}
+        />
+      );
     }
   });
 
@@ -28,9 +45,7 @@ export default function TimeLineElement(props) {
       <TimelineSeparator />
       <TimelineContent>
         <Divider sx={{ mb: "18px", mt: "10px" }} />
-        <Box sx={{ display: "inline-block" }}>
-          {tickets}
-        </Box>
+        <Box sx={{ display: "inline-block" }}>{tickets}</Box>
       </TimelineContent>
     </TimelineItem>
   );
