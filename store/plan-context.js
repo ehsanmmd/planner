@@ -16,16 +16,21 @@ const initialPlanItems = [
 ];
 
 const PlanContext = React.createContext({
-  planItems: initialPlanItems
+  planItems: [],
+  selectedDate: new Date(),
+  setSelectedDate: (date) => {},
 });
 
 export const PlanContextProvider = (props) => {
   const [planItems, setPlanItems] = useState(initialPlanItems);
+  const [selectedDate, setSelectedDate] = useState(initialPlanItems[0].date);
 
   return (
     <PlanContext.Provider
       value={{
         planItems: planItems,
+        selectedDate: selectedDate,
+        setSelectedDate: setSelectedDate,
       }}
     >
       {props.children}
