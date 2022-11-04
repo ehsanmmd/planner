@@ -1,7 +1,7 @@
 import Drawer from "../components/Drawer";
 import Calendar from "../components/Calendar";
 import BottomNav from "../components/BottomNav";
-import TimeLine from "../components/TimeLine";
+import TimeLineArea from "../components/TimeLineAera";
 import { useContext } from "react";
 import PlanContext from "../store/plan-context";
 
@@ -23,7 +23,7 @@ export default function Layout() {
       <Calendar upcomingDate={strUpcomingDate} />
       <BottomNav />
       <Drawer>
-        <TimeLine />
+        <TimeLineArea />
       </Drawer>
     </>
   );
