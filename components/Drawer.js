@@ -7,6 +7,8 @@ import SwipeableDrawer from "@mui/material/SwipeableDrawer";
 import { useState } from "react";
 import { grey } from "@mui/material/colors";
 import Paper from "@mui/material/Paper";
+import { useContext } from "react";
+import PlanContext from "../store/plan-context";
 
 const drawerBleeding = 56;
 
@@ -52,7 +54,7 @@ export default function Drawer(props) {
         ModalProps={{
           keepMounted: true,
         }}
-        hideBackdrop={true}
+        // hideBackdrop={true}
       >
         <Paper elevation={5}>
           <StyledBox
@@ -79,7 +81,9 @@ export default function Drawer(props) {
             height: "100%",
             overflow: "auto",
           }}
-        >{props.children}</StyledBox>
+        >
+          {props.children}
+        </StyledBox>
       </SwipeableDrawer>
     </>
   );

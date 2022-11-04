@@ -31,7 +31,6 @@ export default function PlanTicket(props) {
             </Grid>
             <Grid>
               <Typography>{`${props.time[0]}-${props.time[1]}`}</Typography>
-              {console.log(props)}
             </Grid>
           </Grid>
         </Grid>
