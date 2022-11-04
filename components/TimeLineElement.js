@@ -7,8 +7,19 @@ import TimelineOppositeContent, {
 import Box from "@mui/system/Box";
 import { Divider } from "@mui/material";
 import Skeleton from "@mui/material/Skeleton";
+import PlanTicket from "./PlanTicket";
+import { useContext } from "react";
+import PlanContext from "../store/plan-context";
 
 export default function TimeLineElement(props) {
+  const ctx = useContext(PlanContext);
+
+  const tickets = ctx.planItems.map((plan) => {
+    if (plan.time[0] === props.time) {
+     return <PlanTicket title={plan.topic} location={plan.location} time={plan.time}/>;
+    }
+  });
+
   return (
     <TimelineItem>
       <TimelineOppositeContent color="textSecondary">
@@ -16,14 +27,9 @@ export default function TimeLineElement(props) {
       </TimelineOppositeContent>
       <TimelineSeparator />
       <TimelineContent>
-        <Divider sx={{ mb: "18px", mt: "10px" }}  />
+        <Divider sx={{ mb: "18px", mt: "10px" }} />
         <Box sx={{ display: "inline-block" }}>
-          <Skeleton
-            variant="rectangular"
-            width={410}
-            height={80}
-            sx={{ borderRadius: "10px" }}
-          />
+          {tickets}
         </Box>
       </TimelineContent>
     </TimelineItem>
