@@ -5,11 +5,11 @@ import TimelineOppositeContent, {
 import TimeLineElement from "./TimeLineElement";
 
 let times = [];
-for (let i = 0; i < 24; i++) {
+for (let i = 9; i < 16; i++) {
   times.push(`${i}:00`);
 }
 
-export default function TimeLine() {
+export default function TimeLineArea() {
   return (
     <Timeline
       sx={{
